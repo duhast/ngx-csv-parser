@@ -103,7 +103,7 @@ export class NgxCsvParser {
         config: any
     ) {
         const dataArr = [];
-        const headersArray = csvRecordsArray[0];
+        const headersArray = csvRecordsArray[0].map((h: string) => h.trim());
 
         const startingRowToParseData = config.header ? 1 : 0;
 
@@ -136,7 +136,7 @@ export class NgxCsvParser {
         const headers = csvRecordsArr[0];
         const headerArray = [];
         for (const header of headers) {
-            headerArray.push(header);
+            headerArray.push(header.trim());
         }
         return headerArray;
     }
